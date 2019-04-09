@@ -11,7 +11,7 @@ class crawler():
             self.result = self.result.encode("Big5","ignore")
             self.result = self.result.decode("Big5","ignore")
     def getRequest(self,key):
-        payload = {'slt_k_option':1, 'store_k_word': base64.b64encode(key.encode('ascii'))}
+        payload = {'slt_k_option':1, 'store_k_word': base64.b64encode(key.encode('utf-8'))}
         request = requests.get(self.url, params = payload)
         request.encoding = 'big5'
         soup = BeautifulSoup(request.text, "lxml")
